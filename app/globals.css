@@ -1,44 +1,17 @@
 @import "tailwindcss";
 
-@font-face {
-  font-family: "Montserrat";
-  src: url("/fonts/Montserrat-Regular.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Montserrat";
-  src: url("/fonts/Montserrat-Medium.ttf") format("truetype");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Montserrat";
-  src: url("/fonts/Montserrat-SemiBold.ttf") format("truetype");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Montserrat";
-  src: url("/fonts/Montserrat-Bold.ttf") format("truetype");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
 @theme {
-  --font-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-raleway), ui-sans-serif, system-ui, sans-serif;
 
-  --color-brand-blue: #1863dc;
-  --color-brand-blue-dark: #2e3192;
+  --color-brand-blue: #2e3192;
+  --color-brand-blue-dark: #1f226b;
   --color-brand-blue-deep: #0056a7;
   --color-brand-red: #ee1e24;
-  --color-ink: #110703;
-  --color-ink-soft: #212121;
-  --color-ink-deep: #182944;
+  
+  --color-ink: #182944;
+  --color-ink-soft: #000000;
+  --color-ink-deep: #110703;
   --color-muted: #6e7891;
   --color-muted-soft: #b0b2b7;
   --color-surface: #f4f4f4;
@@ -63,19 +36,21 @@ html.lenis body {
   overflow: hidden;
 }
 
-body {
-  font-family: var(--font-sans);
-  color: var(--color-ink-soft);
-  background: #ffffff;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-ink-soft);
+    background: #ffffff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-sans);
-  color: var(--color-ink);
-  font-weight: 700;
-  letter-spacing: -0.01em;
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    color: var(--color-ink);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
 }
 
 /* ---------- Reveal: fade-in-up ---------- */
@@ -109,7 +84,10 @@ h1, h2, h3, h4, h5, h6 {
   overflow: hidden;
   isolation: isolate;
   cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+}
+.btn-roll:hover {
+  transform: scale(1.04);
 }
 .btn-roll-inner {
   position: relative;

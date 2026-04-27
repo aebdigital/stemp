@@ -84,14 +84,14 @@ export default function ContactForm() {
           rows={5}
           required
           disabled={loading}
-          className="mt-2 w-full rounded-xl border border-black/10 bg-white px-4 py-3 text-sm text-ink-soft outline-none transition focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 disabled:opacity-60"
+          className="mt-2 w-full rounded-xl border border-black/10 bg-white px-4 py-3 text-sm text-ink outline-none transition focus:border-brand-red focus:ring-2 focus:ring-brand-red/20 disabled:opacity-60"
         />
       </div>
 
       <button
         type="submit"
         disabled={loading}
-        className="btn-roll w-full rounded-full bg-brand-blue px-7 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-blue-dark disabled:opacity-70 sm:w-auto"
+        className="btn-roll w-full rounded-full bg-brand-red px-7 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-black hover:text-white disabled:opacity-70 sm:w-auto"
       >
         <span className="btn-roll-inner">
           <span className="btn-roll-text btn-roll-text--main">
@@ -177,7 +177,7 @@ function Field({
         autoComplete={
           name === "email" ? "email" : name === "phone" ? "tel" : name === "name" ? "name" : undefined
         }
-        className="mt-2 w-full rounded-xl border border-black/10 bg-white px-4 py-3 text-sm text-ink-soft outline-none transition focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 disabled:opacity-60"
+        className="mt-2 w-full rounded-xl border border-black/10 bg-white px-4 py-3 text-sm text-ink outline-none transition focus:border-brand-red focus:ring-2 focus:ring-brand-red/20 disabled:opacity-60"
       />
     </div>
   );

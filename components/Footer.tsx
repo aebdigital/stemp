@@ -6,7 +6,7 @@ import CookieSettingsLink from "@/components/CookieSettingsLink";
 export default function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="bg-ink text-white">
+    <footer className="bg-black text-white">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-4 lg:px-8">
         <div className="lg:col-span-2">
           <Image
@@ -16,7 +16,7 @@ export default function Footer() {
             height={52}
             className="h-12 w-auto brightness-0 invert"
           />
-          <p className="mt-4 max-w-md text-sm leading-relaxed text-white/70">
+          <p className="mt-4 max-w-md text-sm leading-relaxed text-muted-soft">
             {site.tagline}. Komplexné stavebné, rekonštrukčné a inžinierske
             služby na východnom Slovensku.
           </p>
@@ -26,7 +26,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"
-              className="grid h-10 w-10 place-items-center rounded-full bg-white/10 transition hover:bg-brand-blue"
+              className="grid h-10 w-10 place-items-center rounded-full bg-white/10 transition hover:bg-brand-red hover:text-white"
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l1-4h-4V7.5C13 6.5 13.5 6 14.5 6H17V2h-3c-3 0-5 2-5 5v3H6v4h3v8h4z"/></svg>
             </a>
@@ -35,7 +35,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
-              className="grid h-10 w-10 place-items-center rounded-full bg-white/10 transition hover:bg-brand-blue"
+              className="grid h-10 w-10 place-items-center rounded-full bg-white/10 transition hover:bg-brand-red hover:text-white"
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
             </a>
@@ -43,10 +43,10 @@ export default function Footer() {
         </div>
 
         <div>
-          <h3 className="text-sm font-semibold uppercase tracking-wide text-white">
+          <h3 className="text-sm font-semibold uppercase tracking-wide text-white font-display">
             Navigácia
           </h3>
-          <ul className="mt-4 space-y-2 text-sm text-white/70">
+          <ul className="mt-4 space-y-2 text-sm text-muted-soft">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <Link
@@ -74,10 +74,10 @@ export default function Footer() {
         </div>
 
         <div>
-          <h3 className="text-sm font-semibold uppercase tracking-wide text-white">
+          <h3 className="text-sm font-semibold uppercase tracking-wide text-white font-display">
             Kontakt
           </h3>
-          <address className="mt-4 space-y-2 text-sm not-italic text-white/70">
+          <address className="mt-4 space-y-2 text-sm not-italic text-muted-soft">
             <div>{site.name}</div>
             <div>
               {site.address.street}
@@ -102,7 +102,7 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-white/10">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-4 py-6 text-xs text-white/50 sm:flex-row sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-4 py-6 text-xs text-muted-soft sm:flex-row sm:px-6 lg:px-8">
           <p>Copyright © {year} Stemp s.r.o. All Rights Reserved.</p>
           <p>Tvorba stránky – AEB Digital</p>
         </div>

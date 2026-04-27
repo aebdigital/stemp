@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 
 export default function ProjectGallery({
   title,
@@ -49,63 +50,66 @@ export default function ProjectGallery({
         ))}
       </div>
 
-      {active !== null && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-4"
-          onClick={() => setActive(null)}
-          role="dialog"
-          aria-modal="true"
-        >
-          <button
-            type="button"
-            className="absolute right-4 top-4 rounded-full bg-white/10 p-2 text-white hover:bg-white/20"
-            onClick={(e) => {
-              e.stopPropagation();
-              setActive(null);
-            }}
-            aria-label="Zavrieť"
-          >
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M6 6l12 12M6 18L18 6"/></svg>
-          </button>
-          <button
-            type="button"
-            className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-white/10 p-3 text-white hover:bg-white/20"
-            onClick={(e) => {
-              e.stopPropagation();
-              setActive(
-                (i) => (i === null ? 0 : (i - 1 + images.length) % images.length),
-              );
-            }}
-            aria-label="Predchádzajúca"
-          >
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 18l-6-6 6-6"/></svg>
-          </button>
-          <button
-            type="button"
-            className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-white/10 p-3 text-white hover:bg-white/20"
-            onClick={(e) => {
-              e.stopPropagation();
-              setActive((i) => (i === null ? 0 : (i + 1) % images.length));
-            }}
-            aria-label="Ďalšia"
-          >
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 6l6 6-6 6"/></svg>
-          </button>
+      {active !== null &&
+        typeof document !== "undefined" &&
+        createPortal(
           <div
-            className="relative h-[80vh] w-[90vw] max-w-5xl"
-            onClick={(e) => e.stopPropagation()}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-4"
+            onClick={() => setActive(null)}
+            role="dialog"
+            aria-modal="true"
           >
-            <Image
-              src={`/images/${images[active]}`}
-              alt={`${title} – fotka ${active + 1}`}
-              fill
-              sizes="90vw"
-              className="object-contain"
-              priority
-            />
-          </div>
-        </div>
-      )}
+            <button
+              type="button"
+              className="absolute right-4 top-4 rounded-full bg-white/10 p-2 text-white hover:bg-white/20"
+              onClick={(e) => {
+                e.stopPropagation();
+                setActive(null);
+              }}
+              aria-label="Zavrieť"
+            >
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M6 6l12 12M6 18L18 6"/></svg>
+            </button>
+            <button
+              type="button"
+              className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-white/10 p-3 text-white hover:bg-white/20"
+              onClick={(e) => {
+                e.stopPropagation();
+                setActive(
+                  (i) => (i === null ? 0 : (i - 1 + images.length) % images.length),
+                );
+              }}
+              aria-label="Predchádzajúca"
+            >
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <button
+              type="button"
+              className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-white/10 p-3 text-white hover:bg-white/20"
+              onClick={(e) => {
+                e.stopPropagation();
+                setActive((i) => (i === null ? 0 : (i + 1) % images.length));
+              }}
+              aria-label="Ďalšia"
+            >
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 6l6 6-6 6"/></svg>
+            </button>
+            <div
+              className="relative h-[80vh] w-[90vw] max-w-5xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Image
+                src={`/images/${images[active]}`}
+                alt={`${title} – fotka ${active + 1}`}
+                fill
+                sizes="90vw"
+                className="object-contain"
+                priority
+              />
+            </div>
+          </div>,
+          document.body,
+        )}
     </div>
   );
 }

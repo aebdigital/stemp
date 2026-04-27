@@ -7,7 +7,12 @@ import { heroImages, services, site, stats } from "@/lib/site";
 export default function HomePage() {
   return (
     <>
-      <ParallaxHero image={heroImages[0]} />
+      <ParallaxHero
+        images={[
+          "20230525_065027-scaled.jpg",
+          "received_759620131569861.jpeg",
+        ]}
+      />
 
       {/* Stats */}
       <section className="relative z-10 -mt-10 bg-white pb-2">
@@ -40,7 +45,7 @@ export default function HomePage() {
             />
           </Reveal>
           <div>
-            <Reveal as="span" className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-blue">
+            <Reveal as="span" className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-red">
               O spoločnosti
             </Reveal>
             <Reveal as="h2" delay={80} className="mt-3 text-3xl font-bold text-ink sm:text-4xl">
@@ -76,7 +81,7 @@ export default function HomePage() {
       <section id="sluzby" className="bg-surface py-20 sm:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl">
-            <Reveal as="span" className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-blue">
+            <Reveal as="span" className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-red">
               Naše služby
             </Reveal>
             <Reveal as="h2" delay={80} className="mt-3 text-3xl font-bold text-ink sm:text-4xl">
@@ -113,10 +118,10 @@ export default function HomePage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-ink py-16 text-white sm:py-20">
+      <section className="bg-ink py-10 text-white sm:py-12">
         <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-8 px-4 sm:px-6 lg:flex-row lg:items-center lg:px-8">
           <div>
-            <Reveal as="h2" className="text-3xl font-bold sm:text-4xl">
+            <Reveal as="h2" className="text-3xl font-bold text-white sm:text-4xl">
               Plánujete stavbu alebo rekonštrukciu?
             </Reveal>
             <Reveal as="p" delay={80} className="mt-3 max-w-xl text-white/70">
@@ -129,7 +134,7 @@ export default function HomePage() {
               href={`mailto:${site.email}`}
               external
               ghost="Napíšte nám"
-              className="rounded-full bg-brand-blue px-7 py-3 text-sm font-semibold text-white hover:bg-brand-blue-dark"
+              className="rounded-full bg-brand-red px-7 py-3 text-sm font-semibold text-white hover:bg-black"
             >
               {site.email}
             </RollButton>

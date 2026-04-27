@@ -14,10 +14,10 @@ export default function PrivacyPage() {
     <>
       <section className="bg-ink py-20 text-white">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-blue">
+          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-red">
             GDPR
           </span>
-          <h1 className="mt-3 text-4xl font-bold sm:text-5xl">
+          <h1 className="mt-3 text-4xl font-bold text-white sm:text-5xl">
             Ochrana osobných údajov
           </h1>
         </div>

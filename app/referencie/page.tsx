@@ -15,10 +15,10 @@ export default function ReferenciePage() {
     <>
       <section className="bg-ink py-20 text-white sm:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <Reveal as="span" className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-blue">
+          <Reveal as="span" className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-red">
             Naša práca
           </Reveal>
-          <Reveal as="h1" delay={80} className="mt-3 text-4xl font-bold sm:text-5xl">
+          <Reveal as="h1" delay={80} className="mt-3 text-4xl font-bold text-white sm:text-5xl">
             Referencie
           </Reveal>
           <Reveal as="p" delay={140} className="mt-4 max-w-2xl text-white/70">
@@ -36,9 +36,6 @@ export default function ReferenciePage() {
                 <h2 className="text-2xl font-bold text-ink sm:text-3xl">
                   {p.title}
                 </h2>
-                <span className="text-sm text-muted">
-                  {p.images.length} fotografií
-                </span>
               </header>
               <ProjectGallery title={p.title} images={p.images} />
             </Reveal>

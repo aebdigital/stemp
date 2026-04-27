@@ -15,10 +15,10 @@ export default function KontaktPage() {
     <>
       <section className="bg-ink py-20 text-white sm:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <Reveal as="span" className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-blue">
+          <Reveal as="span" className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-red">
             Spojte sa s nami
           </Reveal>
-          <Reveal as="h1" delay={80} className="mt-3 text-4xl font-bold sm:text-5xl">
+          <Reveal as="h1" delay={80} className="mt-3 text-4xl font-bold text-white sm:text-5xl">
             Kontakt
           </Reveal>
           <Reveal as="p" delay={140} className="mt-4 max-w-2xl text-white/70">
@@ -112,7 +112,7 @@ export default function KontaktPage() {
           <Reveal className="overflow-hidden rounded-2xl shadow-sm ring-1 ring-black/5">
             <iframe
               title="Mapa — Stemp s.r.o."
-              src="https://www.google.com/maps?q=Hod%C5%BEova%2014%2F5048%2C%20058%2001%20Poprad&output=embed"
+              src="https://www.google.com/maps?q=Stemp%20s.r.o.%2C%20Hod%C5%BEova%2014%2F5048%2C%20058%2001%20Poprad&output=embed"
               width="100%"
               height="420"
               loading="lazy"

@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { Inter, Raleway } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -6,6 +7,18 @@ import SmoothScroll from "@/components/SmoothScroll";
 import CookieBanner from "@/components/CookieBanner";
 import JsonLd from "@/components/JsonLd";
 import { site } from "@/lib/site";
+
+const inter = Inter({
+  subsets: ["latin", "latin-ext"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const raleway = Raleway({
+  subsets: ["latin", "latin-ext"],
+  variable: "--font-raleway",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://stemp.sk"),
@@ -72,7 +85,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#1863dc",
+  themeColor: "#ee1e24", // Updated from blue to brand red
   width: "device-width",
   initialScale: 1,
 };
@@ -83,7 +96,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="sk">
+    <html lang="sk" className={`${inter.variable} ${raleway.variable}`}>
       <body className="flex min-h-screen flex-col bg-white">
         <SmoothScroll />
         <Header />
