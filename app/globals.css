@@ -1,0 +1,146 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+
+  --color-brand-blue: #1863dc;
+  --color-brand-blue-dark: #2e3192;
+  --color-brand-blue-deep: #0056a7;
+  --color-brand-red: #ee1e24;
+  --color-ink: #110703;
+  --color-ink-soft: #212121;
+  --color-ink-deep: #182944;
+  --color-muted: #6e7891;
+  --color-muted-soft: #b0b2b7;
+  --color-surface: #f4f4f4;
+}
+
+html, body {
+  /* lenis controls scroll; keep native fallback smooth */
+  scroll-behavior: smooth;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-ink-soft);
+  background: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* ---------- Reveal: fade-in-up ---------- */
+[data-reveal] {
+  opacity: 0;
+  transform: translate3d(0, 28px, 0);
+  transition:
+    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* ---------- Rolling button ---------- */
+.btn-roll {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  isolation: isolate;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+.btn-roll-inner {
+  position: relative;
+  display: inline-grid;
+  overflow: hidden;
+  line-height: 1.25;
+}
+.btn-roll-text {
+  grid-area: 1 / 1;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+  will-change: transform;
+}
+.btn-roll-text--ghost {
+  transform: translate3d(0, 110%, 0);
+}
+.btn-roll:hover .btn-roll-text--main,
+.btn-roll:focus-visible .btn-roll-text--main {
+  transform: translate3d(0, -110%, 0);
+}
+.btn-roll:hover .btn-roll-text--ghost,
+.btn-roll:focus-visible .btn-roll-text--ghost {
+  transform: translate3d(0, 0, 0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn-roll-text {
+    transition: none !important;
+  }
+}
+
+/* ---------- Parallax hero ---------- */
+.parallax-bg {
+  will-change: transform;
+}
